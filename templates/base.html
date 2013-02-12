@@ -1,0 +1,98 @@
+{% load comics_tags %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %} | Dainger Comics</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Dainger Comics">
+
+        <!-- CSS and LESS-->
+        <link rel="stylesheet/less" type=text/css href="{{ STATIC_URL }}css/style.less">
+        <script src="{{ STATIC_URL }}js/less.js" type="text/javascript"></script>
+
+        {% block head %}{% endblock %}
+    </head>
+
+    <body>
+        <div id="background-container">
+            {% for background_image_cols in background_image_rows %}
+            {% for background_image in background_image_cols %}
+            <img class="background-img" src="{{ background_image|thumbnail:'200s' }}">
+            {% endfor %}
+            <br/>
+            {% endfor %}
+        </div>
+
+        <div id="container">
+            <div id="header-container" class="cf">
+                <div id="header" class="cf">
+                    <h1 id="header-title"><a href="/"><img id="title-image" src="{{ STATIC_URL }}img/title.jpg" alt="Dainger Comics" title="Dainger Comics"/></a></h1>
+
+                    <div id="nav">
+                        <ul>
+                            <li><a href="/">home</a></li>
+                            <li><a href="/s/about/">about</a></li>
+                        </ul>
+                        <a href="https://twitter.com/daingercomics" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @daingercomics</a>
+
+                        <a id="rss-button" href="http://daingercomics.com/rss/"><img src="{{ STATIC_URL }}img/rss-icon.png" alt="Subscribe" /><br />Subscribe!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="primary-content" class="cf">
+                {% block primary_content %}
+                {% endblock %}
+            </div>
+
+            <div id="secondary-content" class="cf">
+                {% block secondary_content %}
+                {% endblock %}
+            </div>
+
+            <div id="footer" class="cf">
+                {% block footer %}
+                {% endblock %}
+            </div>
+        </div>
+        
+        <!-- google plus button -->
+        <script type="text/javascript">
+            (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+        </script>
+
+        <!-- twitter follow button -->
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        <!-- Facebook -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <!-- google analytics -->
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-35331184-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+
+    </body>
+</html>

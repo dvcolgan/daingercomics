@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% load comics_tags %}
+{% load markup %}
+
+{% block title %}{{ comic.title }}{% endblock %}
+
+{% block primary_content %}
+
+    <div id="comic-strip-image-container">
+        <img id="comic-strip-image" src="{{ comic.image|thumbnail:'900w' }}" title="{{ comic.image_title }}" alt="{{ comic.image_alt }}"/>
+    </div>
+
+    <br/>
+    {% if comic_oldest.id != comic.id %}
+    <a class="nav-button" href="/{{ comic_oldest.id }}">&lt&lt</a>
+    {% endif %}
+    <a class="nav-button-big" href="/{{ comic_id_prev }}">&lt</a>
+    <div id="comic-strip-number">{{ comic.id }}</div>
+    <a class="nav-button-big" href="/{{ comic_id_next }}">&gt</a>
+    {% if comic_newest.id != comic.id %}
+    <a class="nav-button" href="/{{ comic_newest.id }}">&gt&gt</a>
+    {% endif %}
+    <div id="comic-strip-title">{{ comic.title }}</div>
+
+    <br/>
+    <div id="social-container" class="panel cf">
+        <div><div class="fb-like" data-href="http://www.daingercomics.com/{{ comic.id }}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div></div>
+        <div><div class="g-plusone" data-size="medium" data-href="http://www.daingercomics.com/{{ comic.id }}"></div></div>
+        <!--
+        <su:badge layout="5"></su:badge>
+        <script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script>
+        -->
+    </div>
+
+    <div id="comic-strip-post">
+        {{ comic.post|markdown }}
+    </div>
+
+{% endblock %}
+
+{% block secondary_content %}
+    {% comment %}
+    <div class="column-left">
+
+        <h2>Share Dainger Comics</h2>
+        <div id="social-container" class="panel cf">
+            <div class="fb-like" data-href="http://puncomics.com/{{ pun.id }}/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="false"></div>
+            <div class="g-plusone" data-size="tall"></div>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://puncomics.com/{{ pun.id }}/" data-count="vertical" data-text="Look at this thing you guys" data-via="davidscolgan" data-dnt="true">Tweet</a>
+            <su:badge layout="5"></su:badge>
+            <script type="text/javascript" src="http://www.reddit.com/static/button/button2.js"></script>
+        </div>
+
+    <h2>Google Ads!</h2>
+    <div class="column-right">
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-1859381657383946";
+            /* Pun Comics 3 */
+            google_ad_slot = "2776054614";
+            google_ad_width = 160;
+            google_ad_height = 600;
+            //-->
+        </script>
+        <script type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+    </div>
+    {% endcomment %}
+{% endblock %}
+
+{% comment %}
+{% block footer %}
+    <div id="privacy-link">
+        <a href="/privacy/">Privacy Policy</a>
+    </div>
+{% endblock %}
+{% endcomment %}
