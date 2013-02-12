@@ -16,12 +16,7 @@
 
     <body>
         <div id="background-container">
-            {% for background_image_cols in background_image_rows %}
-            {% for background_image in background_image_cols %}
-            <img class="background-img" src="{{ background_image|thumbnail:'200s' }}">
-            {% endfor %}
-            <br/>
-            {% endfor %}
+            <img class="background-img" src="{{ STATIC_URL }}img/background.jpg">
         </div>
 
         <div id="container">

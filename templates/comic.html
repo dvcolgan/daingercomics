@@ -12,6 +12,7 @@
     </div>
 
     <br/>
+    <div class="transparent-panel">
     {% if comic_oldest.id != comic.id %}
     <a class="nav-button" href="/{{ comic_oldest.id }}">&lt&lt</a>
     {% endif %}
@@ -24,6 +25,7 @@
     <div id="comic-strip-title">{{ comic.title }}</div>
 
     <br/>
+
     <div id="social-container" class="panel cf">
         <div><div class="fb-like" data-href="http://www.daingercomics.com/{{ comic.id }}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div></div>
         <div><div class="g-plusone" data-size="medium" data-href="http://www.daingercomics.com/{{ comic.id }}"></div></div>
@@ -35,6 +37,7 @@
 
     <div id="comic-strip-post">
         {{ comic.post|markdown }}
+    </div>
     </div>
 
 {% endblock %}
