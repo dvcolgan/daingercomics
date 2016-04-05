@@ -51,7 +51,7 @@ a img {
 }
 
 li {
-    margin: 10px 0;
+    margin-bottom: 13px;
 }
 
 #container {
@@ -88,7 +88,7 @@ li {
     left: 730px;
     width: 100px;
     text-align: left;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 #title-image {
@@ -112,13 +112,19 @@ li {
     margin: 0;
 }
 
-.nav-button {
-    font-size: 16px;
+.nav-container {
+    text-align: center;
 }
 
-.nav-button-big {
-    font-size: 20px;
+.nav-button, .nav-button-big {
+    font-size: 26px;
+    margin: 8px 57px;
+    font-weight: bold;
+    border: 1px solid @color_1;
+    padding: 2px 20px;
+    border-radius: 4px;
 }
+
 
 #primary-content {
     width: @width_comic;
@@ -137,11 +143,14 @@ li {
 
     #comic-strip-number {
         display: inline;
+        font-size: 20px;
     }
 
     #comic-strip-title {
         display: inline;
         font-weight: bold;
+        font-size: 20px;
+        margin-left: 90px;
     }
 
     #comic-strip-post {
@@ -150,7 +159,7 @@ li {
     }
 
     #social-container {
-        margin-top: 10px;
+        margin-top: -20px;
         float: left;
     }
 }
@@ -188,5 +197,5 @@ li {
 
 .transparent-panel {
     background-color: rgba(255,255,255,0.7);
-    padding: 20px;
+    padding: 30px;
 }

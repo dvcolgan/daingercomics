@@ -13,15 +13,16 @@
 
     <br/>
     <div class="transparent-panel">
-    {% if comic_oldest.id != comic.id %}
-    <a class="nav-button" href="/{{ comic_oldest.id }}">&lt&lt</a>
-    {% endif %}
-    <a class="nav-button-big" href="/{{ comic_id_prev }}">&lt</a>
-    <div id="comic-strip-number">{{ comic.id }}</div>
-    <a class="nav-button-big" href="/{{ comic_id_next }}">&gt</a>
-    {% if comic_newest.id != comic.id %}
-    <a class="nav-button" href="/{{ comic_newest.id }}">&gt&gt</a>
-    {% endif %}
+    <div class="nav-container">
+        <a class="nav-button" href="/{{ comic_oldest.id }}">&lt&lt</a>
+        <a class="nav-button-big" href="/{{ comic_id_prev }}">&lt</a>
+        <div id="comic-strip-number">{{ comic.id }}</div>
+        <a class="nav-button-big" href="/{{ comic_id_next }}">&gt</a>
+        <a class="nav-button" href="/{{ comic_newest.id }}">&gt&gt</a>
+    </div>
+
+    <br/>
+
     <div id="comic-strip-title">{{ comic.title }}</div>
 
     <br/>
