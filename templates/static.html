@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load markup %}
+{% load comics_tags %}
 
 {% block title %}{{ page.title }}{% endblock %}
 
@@ -11,7 +11,7 @@
         <div class="transparent-panel">
         <h2>{{ page.title }}</h2>
         <br/>
-        {{ page.content|markdown }}
+        {{ page.content|markdown|safe }}
         </div>
     </div>
 

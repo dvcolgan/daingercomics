@@ -1,7 +1,7 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% load comics_tags %}
-{% load markup %}
 
 {% block title %}{{ comic.title }}{% endblock %}
 
@@ -37,7 +37,7 @@
     </div>
 
     <div id="comic-strip-post">
-        {{ comic.post|markdown }}
+        {{ comic.post|markdown|safe }}
     </div>
     </div>
 

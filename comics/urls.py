@@ -1,7 +1,8 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import url
+from comics import views
 
-urlpatterns = patterns('comics.views',
-    url(r'^$', 'comic'),
-    url(r'^(?P<comic_id>\d+)/$', 'comic'),
-    url(r'^s/(?P<page_slug>[\w\d]+)/$', 'static'),
-)
+urlpatterns = [
+    url(r'^$', views.comic),
+    url(r'^(?P<comic_id>\d+)/$', views.comic),
+    url(r'^s/(?P<page_slug>[\w\d]+)/$', views.static),
+]

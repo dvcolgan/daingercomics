@@ -1,6 +1,7 @@
 from comics.models import *
 from django.shortcuts import get_object_or_404, render
 
+
 def comic(request, comic_id=None):
 
     # Get ordered list of comics, and pull out the newest & oldest ones,
@@ -26,9 +27,11 @@ def comic(request, comic_id=None):
 
     return render(request, 'comic.html', locals())
 
+
 def static(request, page_slug):
     page = get_object_or_404(StaticPage, slug=page_slug)
     return render(request, 'static.html', locals())
+
 
 def privacy(request):
     return render(request, 'privacy.html', locals())

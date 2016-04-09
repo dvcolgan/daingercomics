@@ -1,14 +1,23 @@
 from django.template import Library
-import Image
+from PIL import Image
 import math
 import os
+from markdown import markdown as parse_markdown
+
 
 register = Library()
+
 
 def scale(max_x, pair):
     x, y = pair
     new_y = (float(max_x) / x) * y
     return (int(math.ceil(float(max_x))), int(math.ceil(float(new_y))))
+
+
+@register.filter
+def markdown(text):
+    return parse_markdown(text)
+
 
 @register.filter
 def thumbnail(file, size='200w'):
